@@ -8,7 +8,6 @@ import './Cart.css';
 
 const Cart = () => {
 
-  const [someState, setSomeState] = useState(false);
 
   return (
     <div>
@@ -19,8 +18,7 @@ const Cart = () => {
           <CartItem/>
           </div>
           <div className='w-full lg:w-1/3 relative mt-10 sm:mt-0'>
-          <CheckoutSummary onShowPayment={() => setSomeState(true)} />
-     
+          <CheckoutSummary />
           </div>
         </div>
       </div>
