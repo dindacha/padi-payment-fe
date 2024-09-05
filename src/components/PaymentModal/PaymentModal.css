@@ -2,6 +2,10 @@
   width: 100%; 
 }
 
+.payment-modal {
+  margin-top: 120px;
+}
+
 .tab-buttons {
   display: flex; 
   width: 100%; 
@@ -63,3 +67,21 @@
 .checkout-summary-footer {
   padding-top: 1.5rem; 
 }
+
+
+
+input[type="radio"].accent-secondary-70:checked + .radio-label {
+  border: 2px solid #0891B2; /* Warna biru ketika radio button dipilih */
+  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.3); /* Opsional: menambahkan shadow */
+}
+
+/* Label untuk radio button jika Anda menggunakan label sebagai wrapper */
+.radio-label {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent; /* Border default yang transparan */
+  padding: 10px;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+

@@ -3,6 +3,7 @@ import { Ubuntu, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import CustomerCare from "@/components/CustomerCare/CustomerCare";
 
 // Load Ubuntu font
 const ubuntu = Ubuntu({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={`${ubuntu.className} ${openSans.className}`}>
         <Navbar/>
         {children}
+        <CustomerCare/>
         <Footer/>
       </body>
     </html>

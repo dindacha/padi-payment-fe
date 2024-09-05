@@ -102,40 +102,40 @@ const Footer = () => {
                     <div className="text-xl font-bold mb-6 text-center lg:text-start">Metode Pembayaran</div>
                     <div className="flex flex-wrap gap-3 md:gap-4 items-center">
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="mandiri-logo.svg" alt="" width="70" height="70" />
+                            <img src="padi-umkm/logo-mandiri.svg" alt="" width="70" height="70" />
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="bni-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-bni.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="bsi-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-bsi.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="bri-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-bri.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="btn-logo-2.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-btn.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="bjb.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-bjb.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="qris-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-qris.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="dana-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-dana.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="linkaja-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-linkaja.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="ovo-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-ovo.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="card-logo.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-visa.svg" alt="" width="70" height="70"/>
                         </div>
                         <div className="cursor-pointer flex-none w-fit items-center">
-                            <img src="kki-logo-2.svg" alt="" width="70" height="70"/>
+                            <img src="padi-umkm/logo-kki.svg" alt="" width="70" height="70"/>
                         </div>
                     </div>
                 </div>

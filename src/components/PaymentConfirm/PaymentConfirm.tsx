@@ -1,4 +1,7 @@
 import React from 'react'
+import Link from 'next/link';
+import './PaymentConfirm.css'
+
 
 const PaymentConfirm = () => {
   return (
@@ -74,9 +77,33 @@ const PaymentConfirm = () => {
                </div>
             </div>
          </div>
-         <div className="inline-flex items-center justify-start gap-4 self-stretch"><button data-testid="btnKembaliKeBeranda" className="basis-0px-3 flex shrink grow items-center justify-center gap-2 rounded border border border border border-cyan-600 bg-white py-2">
-            <span className="text-center text-[16px] font-medium capitalize leading-normal text-cyan-600">Kembali ke beranda</span></button><button data-testid="btnCekStatusPesanan" 
-            className="basis-0px-3 flex shrink grow items-center justify-center gap-2 rounded bg-cyan-600 cursor-pointer py-2"><span className="text-[16px] font-medium capitalize leading-normal text-neutral-50">Cek Status Pesanan</span></button></div>
+         <div className="flex gap-4">
+            <Link href="/checkout">
+               <button 
+                     data-testid="btnKembaliKeBeranda" 
+                     className="w-80 flex items-center justify-center gap-2 rounded border border-cyan-600 bg-white py-2"
+               >
+                     <span className="text-[16px] font-medium capitalize leading-normal text-cyan-600">
+                        Kembali ke beranda
+                     </span>
+               </button>
+            </Link>
+            <Link href="/checkout">
+               <button 
+                     data-testid="btnCekStatusPesanan" 
+                     className="w-80 flex items-center justify-center gap-2 rounded bg-cyan-600 cursor-pointer py-2"
+               >
+                     <span className="text-[16px] font-medium capitalize leading-normal text-neutral-50">
+                        Cek Status Pesanan
+                     </span>
+               </button>
+            </Link>
+         </div>
+
+
+
+
+
          <div className="flex flex-col items-center justify-start gap-[42px] self-stretch rounded-lg ">
             <div className="flex flex-col items-end justify-start self-stretch rounded-lg">
                <div className="flex flex-col items-start justify-start gap-1 self-stretch">
