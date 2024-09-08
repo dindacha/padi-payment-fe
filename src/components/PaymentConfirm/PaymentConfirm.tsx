@@ -4,88 +4,134 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import './PaymentConfirm.css';
+import Countdown from 'react-countdown';
+
+type CountdownProps = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  completed: boolean;
+};
 
 interface Payment {
    logo: string;
    payment_name: string;
- }
- 
- interface Transaction {
+}
+
+interface Transaction {
    no_payment: string;
    status: string;
    dueDate: string;
    gross_amount: number;
    payment: Payment; 
    payment_name: string;
- }
+   expire_at: string; // changed to string to match your data
+}
+
+const formatDate = (date: Date | string): string => {
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+  const d = typeof date === 'string' ? new Date(date) : date;
+  const dayName = days[d.getDay()];
+  const day = d.getDate();
+  const month = months[d.getMonth()];
+  const year = d.getFullYear();
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+
+  return `${dayName}, ${day} ${month} ${year} ${hours}.${minutes}`;
+};
+
+const renderer = ({ days, hours, minutes, seconds, completed }: CountdownProps) => {
+  if (completed) {
+    return <div>Expired</div>;
+  } else {
+    return (
+      <div>
+        {days} : {hours} : {minutes} : {seconds}
+      </div>
+    );
+  }
+};
 
 const PaymentConfirm = () => {
   const [transaction, setTransaction] = useState<Transaction | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null); 
+  const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const transactionId = searchParams.get('transactionId');
 
-  const NEXT_PUBLIC_API_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgyMjA0NjUsImlhdCI6MTcyNTYyODQ2NSwibmJmIjoxNzI1NjI4NDY1LCJzdWIiOiI4NTNlYmE4NS05NjBhLTQ3ODUtYTVhZS1mYjQ4ZTExNTk5OWYifQ.3aZRpZeRrm8v372JYbXJ2mjTyNWQ9cyxi8BUl36NqmKGnoPnqnEI41ZI1vmOWXbdYLEzxOucQjXrtk2uMcNGrQ'; 
+  const paymentsUrl = process.env.NEXT_PUBLIC_PAYMENTS_URL;
+  const transactionsUrl = process.env.NEXT_PUBLIC_TRANSACTIONS_URL;
+  const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
   useEffect(() => {
-   if (!transactionId) {
-     console.log('transactionId is null or undefined');
-     return;
-   }
- 
-   const fetchData = async () => {
-     try {
-       const response = await fetch(`https://zenspire-f5ec6.et.r.appspot.com/api/v1/transactions/${transactionId}`, {
-         headers: {
-           'Authorization': `Bearer ${NEXT_PUBLIC_API_TOKEN}`,
-         },
-       });
- 
-       if (!response.ok) {
-         const errorMessage = await response.text();
-         console.error('API error:', errorMessage);
-         throw new Error('Network response was not ok');
-       }
- 
-       const data = await response.json();
-       console.log('Fetched data:', data);
-       setTransaction(data.data);
-       
-     } catch (error) {
-       if (error instanceof Error) {
-         setError(error.message); 
-       } else {
-         setError('An unknown error occurred');
-       }
-     } finally {
-       setLoading(false);
-     }
-   };
- 
-   fetchData();
+    if (!transactionId) {
+      console.log('transactionId is null or undefined');
+      return;
+    }
 
- }, [transactionId]);
- 
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${transactionsUrl}${transactionId}`, {
+          headers: {
+            Authorization: `Bearer ${apiToken}`,
+          },
+        });
+
+        if (!response.ok) {
+          const errorMessage = await response.text();
+          console.error('API error:', errorMessage);
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log('Fetched data:', data);
+
+        const transactionData = {
+          ...data.data,
+          expire_at: new Date(data.data.expire_at) 
+        };
+
+        setTransaction(transactionData);
+        
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError('An unknown error occurred');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+  }, [transactionId]);
 
   if (error) return <div>Error: {error}</div>;
   if (loading) return <div>Loading...</div>;
   if (!transaction) return <div>No transaction data available.</div>;
 
   return (
-   <div className="p-2">
-   {transaction ? (
-     <div className="md:w-[700px] lg:w-[700px] mx-auto mt-[24px]">
-       <img src="payment-confirm-padiumkm.svg" alt="general confirmation" className="w-[300px] mx-auto" />
-       
-       <div className="w-full flex-col justify-center items-center gap-1 inline-flex">
-         <div className="text-neutral-600 text-xl font-bold leading-7">Lakukan Pembayaran Dalam</div>
-         <div className="text-center text-red-600 text-lg font-bold capitalize leading-relaxed">
-           <div>{transaction.status}</div>
-         </div>
-         <div className="text-neutral-600 text-sm font-normal leading-[21px]">Tanggal Jatuh Tempo</div>
-         <div className="text-center text-neutral-600 text-lg font-bold capitalize leading-relaxed">
-           {new Date(transaction.dueDate).toLocaleDateString()}
+    <div className="p-2">
+      {transaction ? (
+        <div className="md:w-[700px] lg:w-[700px] mx-auto mt-[24px]">
+          <img src="payment-confirm-padiumkm.svg" alt="general confirmation" className="w-[300px] mx-auto" />
+          <div className="w-full flex-col justify-center items-center gap-1 inline-flex">
+            <div className="text-neutral-600 text-xl font-bold leading-7">Lakukan Pembayaran Dalam</div>
+            <div className="text-center text-red-600 text-lg font-bold capitalize leading-relaxed">
+            <Countdown
+        date={new Date(transaction.expire_at).getTime()}
+        renderer={renderer}
+      />
+            </div>
+            <div className="text-neutral-600 text-sm font-normal leading-[21px]">Tanggal Jatuh Tempo</div>
+            <div className="text-center text-neutral-600 text-lg font-bold capitalize leading-relaxed">
+              {formatDate(transaction.expire_at)}
          </div>
        </div>
        <div className="inline-flex w-full flex-col items-center gap-8 my-6">

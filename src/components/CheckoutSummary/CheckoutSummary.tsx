@@ -1,84 +1,81 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import "./CheckoutSummary.css";
 import PaymentModal from "../PaymentModal/PaymentModal";
-import { useRouter } from 'next/navigation';
 
 const CheckoutSummary = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [paymentName, setPaymentName] = useState("");
   const [Id, setId] = useState("");
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const totalAmountRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-
-  const transactionsUrl =
-    "https://zenspire-f5ec6.et.r.appspot.com/api/v1/transactions/";
-  const NEXT_PUBLIC_API_TOKEN =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgyMjA0NjUsImlhdCI6MTcyNTYyODQ2NSwibmJmIjoxNzI1NjI4NDY1LCJzdWIiOiI4NTNlYmE4NS05NjBhLTQ3ODUtYTVhZS1mYjQ4ZTExNTk5OWYifQ.3aZRpZeRrm8v372JYbXJ2mjTyNWQ9cyxi8BUl36NqmKGnoPnqnEI41ZI1vmOWXbdYLEzxOucQjXrtk2uMcNGrQ";
-
-
-    //INI YANG BUAT GEETTTT
-    useEffect(() => {
-      const fetchPaymentData = async () => {
-        try {
-          const response = await fetch(
-            "https://zenspire-f5ec6.et.r.appspot.com/api/v1/payments/suggest",
-            {
-              method: "GET",
-              headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-                "Content-Type": "application/json",
-              },
-            }
-          );
+  const paymentsUrl = process.env.NEXT_PUBLIC_PAYMENTS_URL;
+  const transactionsUrl = process.env.NEXT_PUBLIC_TRANSACTIONS_URL;
+  const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
   
-          if (!response.ok) {
-            console.error("HTTP Error:", response.status, response.statusText);
-            throw new Error("Failed to fetch payment data");
-          }
-  
-          const data = await response.json();
-          console.log("Full fetched data object:", data);
-          setPaymentName(data.data.payment_name);
-          setId(data.data.id);
-
-          
-        } catch (error) {
-          console.error("Error fetching payment data:", error);
-          setError("Failed to fetch payment data");
-        } 
-      };
-  
-      fetchPaymentData();
-    }, []);
-
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  useEffect(() => {
+    const fetchPaymentData = async () => {
+      if (!paymentsUrl) {
+        console.error('Payments URL is not defined');
+        return;
+      }
 
-  //INI YANG BUAT POST
+      try {
+        const response = await fetch(`${paymentsUrl}suggest`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${apiToken}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          console.error("HTTP Error:", response.status, response.statusText);
+          throw new Error("Failed to fetch payment data");
+        }
+
+        const data = await response.json();
+        console.log("Full fetched data object:", data);
+        setPaymentName(data.data.payment_name);
+        setId(data.data.id);
+
+      } catch (error) {
+        console.error("Error fetching payment data:", error);
+        setError("Failed to fetch payment data");
+      } 
+    };
+
+    fetchPaymentData();
+  }, [paymentsUrl, apiToken]);
+
+
   const handlePayment = async () => {
-    
     setIsSubmitting(true);
     setError(null);
 
     const totalAmountString = totalAmountRef.current?.textContent || "0";
     const totalAmount = parseFloat(totalAmountString.replace(/[^\d.-]/g, ""));
-    const paymentId = Id;
+    const paymentId = +Id;
 
     try {
+      if (!transactionsUrl) {
+        console.error('Transactions URL is not defined');
+        return;
+      }
+
       const res = await fetch(transactionsUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${NEXT_PUBLIC_API_TOKEN}`,
+          Authorization: `Bearer ${apiToken}`,
         },
         body: JSON.stringify({
           payment_id: paymentId,
@@ -94,11 +91,8 @@ const CheckoutSummary = () => {
       const result = await res.json();
       const transactionId = result.data.id;
       router.push(`/payment?transactionId=${transactionId}`);
-      console.log("ini resultnya", result)
-      console.log("ini id trans nya", transactionId)
-
-      console.log("atasnya ini tuh console POSST")
-
+      console.log("ini resultnya", result);
+      console.log("ini id trans nya", transactionId);
       alert("Payment processed successfully!");
       closeModal();
 
@@ -172,15 +166,13 @@ const CheckoutSummary = () => {
             </div>
 
             <div className="pt-6">
-              <Link href="/payment" passHref>
-                <button
-                  className="w-full px-4 h-9 border border-secondary-70 rounded-lg text-white bg-secondary-70 hover:bg-secondary-40 font-medium"
-                  onClick={handlePayment}
-                  disabled={isSubmitting}
-                >
-                  Bayar dengan {paymentName ? `${paymentName}` : "..."}
-                </button>
-              </Link>
+              <button
+                className="w-full px-4 h-9 border border-secondary-70 rounded-lg text-white bg-secondary-70 hover:bg-secondary-40 font-medium"
+                onClick={handlePayment}
+                disabled={isSubmitting}
+              >
+                Bayar dengan {paymentName ? `${paymentName}` : "..."}
+              </button>
               {error && (
                 <div className="error-message text-red-500 text-sm mt-2">
                   {error}

@@ -37,17 +37,24 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
   const totalAmountRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
 
-  const url = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/payments/';
-  const transactionsUrl = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/transactions/';
-  const NEXT_PUBLIC_API_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgyMjA0NjUsImlhdCI6MTcyNTYyODQ2NSwibmJmIjoxNzI1NjI4NDY1LCJzdWIiOiI4NTNlYmE4NS05NjBhLTQ3ODUtYTVhZS1mYjQ4ZTExNTk5OWYifQ.3aZRpZeRrm8v372JYbXJ2mjTyNWQ9cyxi8BUl36NqmKGnoPnqnEI41ZI1vmOWXbdYLEzxOucQjXrtk2uMcNGrQ';
+  const paymentsUrl = process.env.NEXT_PUBLIC_PAYMENTS_URL;
+  const transactionsUrl = process.env.NEXT_PUBLIC_TRANSACTIONS_URL;
+  const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
   
   useEffect(() => {
     const listPayment = async () => {
+
+      if (!paymentsUrl) {
+        console.error('Payments URL is not defined');
+        return;
+      }
+
       try {
-        const res = await fetch(url, {
+        const res = await fetch(paymentsUrl, {
           method: 'GET',
           headers: {
+            Authorization: `Bearer ${apiToken}`,
             'Content-Type': 'application/json',
           },
         });
@@ -83,13 +90,17 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
     const totalAmountString = totalAmountRef.current?.textContent || '0';
     const totalAmount = parseFloat(totalAmountString.replace(/[^\d.-]/g, '')) || 0;
 
-    
     try {
+      if (!transactionsUrl) {
+        console.error('Payments URL is not defined');
+        return;
+      }
+      
       const res = await fetch(transactionsUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${NEXT_PUBLIC_API_TOKEN}`,
+          'Authorization': `Bearer ${apiToken}`,
         },
         body: JSON.stringify({
           payment_id: selectedPaymentId,
@@ -127,9 +138,9 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
     return <div>Loading...</div>;
   }
 
-    if (!payments || !payments.data) {
-      return <div>No payment data available</div>;
-    }
+  if (!payments || !payments.data) {
+    return <div>No payment data available</div>;
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 payment-modal-black">
