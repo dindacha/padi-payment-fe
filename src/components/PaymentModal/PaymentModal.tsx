@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import './PaymentModal.css';
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 interface Payment {
   id: string;
@@ -33,11 +34,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
  
-
   const totalAmountRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
-  const url = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/payments';
-  const transactionsUrl = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/transactions';
+  const url = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/payments/';
+  const transactionsUrl = 'https://zenspire-f5ec6.et.r.appspot.com/api/v1/transactions/';
   const NEXT_PUBLIC_API_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgyMjA0NjUsImlhdCI6MTcyNTYyODQ2NSwibmJmIjoxNzI1NjI4NDY1LCJzdWIiOiI4NTNlYmE4NS05NjBhLTQ3ODUtYTVhZS1mYjQ4ZTExNTk5OWYifQ.3aZRpZeRrm8v372JYbXJ2mjTyNWQ9cyxi8BUl36NqmKGnoPnqnEI41ZI1vmOWXbdYLEzxOucQjXrtk2uMcNGrQ';
 
   
@@ -77,7 +78,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
     }
     
     setIsSubmitting(true);
-    setError(null); // Reset error state before starting
+    setError(null); 
     
     const totalAmountString = totalAmountRef.current?.textContent || '0';
     const totalAmount = parseFloat(totalAmountString.replace(/[^\d.-]/g, '')) || 0;
@@ -97,18 +98,17 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
       });
   
       if (!res.ok) {
-        // Handle server errors and non-2xx responses
         const result = await res.json();
         throw new Error(result.message || 'Payment failed');
       }
   
       const result = await res.json();
+      const transactionId = result.data.id;
+      router.push(`/payment?transactionId=${transactionId}`);
   
-      // Handle successful response
       alert('Payment processed successfully!');
-      onClose(); // Close the modal on successful payment
+      onClose(); 
     } catch (error) {
-      // Handle different types of errors
       if (error instanceof Error) {
         console.error('Payment error:', error.message);
         setError(error.message);
@@ -121,19 +121,15 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
     }
   };
   
-  
-  
-  
-
   if (!isOpen) return null;
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!payments || !payments.data) {
-    return <div>No payment data available</div>;
-  }
+    if (!payments || !payments.data) {
+      return <div>No payment data available</div>;
+    }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 payment-modal-black">
@@ -197,7 +193,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
                             </label>
                             <div className="w-24 h-10 flex items-center justify-center">
                               <img
-                                src={payment.logo}
+                                src= {`padi-umkm/${payment.logo}`}
                                 alt={`${payment.payment_name} logo`}
                                 className="object-contain w-full h-full"
                               />
