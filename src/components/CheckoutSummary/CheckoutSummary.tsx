@@ -152,11 +152,11 @@ const CheckoutSummary = () => {
           <div className="checkout-summary-footer">
             <div className="flex justify-between m-1">
               <div className="checkout-summary-total">Total Harga (5 Barang)</div>
-              <div className="checkout-summary-price">Rp2000000</div>
+              <div className="checkout-summary-price">Rp10000</div>
             </div>
             <div className="flex justify-between m-1">
               <div className="checkout-summary-total">Total Ongkos Kirim</div>
-              <div className="checkout-summary-price">Rp150000</div>
+              <div className="checkout-summary-price">Rp2345</div>
             </div>
             <div className="flex justify-between m-1">
               <div className="checkout-summary-price">Total Belanja</div>
