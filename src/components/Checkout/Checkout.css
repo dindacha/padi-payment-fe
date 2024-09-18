@@ -3,8 +3,24 @@
     margin-right: auto;
     margin-top: 1.25rem;
     height: 100%;
-    font-family: Ubuntu,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family: Ubuntu, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     width: 1200px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 1rem;
+}
+
+.sticky-summary {
+    position: sticky;
+    top: 3rem; 
+    z-index: 10;
+    padding-top: 1rem; 
+}
+
+@media (min-width: 1024px) {
+    .sticky-summary {
+        top: 10rem;
+    }
+}
+
+.navbar {
+    z-index: 10; 
 }

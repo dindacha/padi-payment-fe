@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "imageSrc": "https://media.monotaro.id/mid01/full/Kebutuhan%20Kantor/Furnitur/Kursi%20Kantor%2FKomersial/Kursi%20Kantor/Chairman%20Executive%20Chair%20Series%20Fabric%20EC-4000%20B/Chairman%20Executive%20Chair%20Series%20Fabric%20EC-4000%20B%20D35%201unit/bxS015931429-1.jpg",
+      "title": "Tokooooo Kursi Kantor Ergonomis",
+      "location": "Jakarta",
+      "availability": "Tersedia",
+      "description": "Kursi kantor ergonomis dengan desain modern",
+      "quantity": "1 pcs (5.00 kg)",
+      "tax": "PPN",
+      "taxpph": "PPH 22",
+      "price": "Rp1.200.000",
+      "shippingOptions": "Pilih Pengiriman"
+    },
+    {
+      "id": 2,
+      "imageSrc": "https://static.fore.coffee/product/Americano%20Iced.jpg",
+      "title": "FORE BANDUNG",
+      "location": "Bandung",
+      "availability": "Tersedia",
+      "description": "FORE FOR EVERYONE",
+      "quantity": "1 pcs (0.75 kg)",
+      "tax": "PPN",
+      "taxpph": "PPH 22",
+      "price": "Rp450.000",
+      "shippingOptions": "Pilih Pengiriman"
+    },
+    {
+      "id": 3,
+      "imageSrc": "https://images.philips.com/is/image/philipsconsumer/3d2d95b57d894a5e9407b01200be8bf7?wid=700&hei=700&$pnglarge$",
+      "title": "Jual Monitor LCD",
+      "location": "Surabaya",
+      "availability": "Tersedia",
+      "description": "Monitor LCD 24 inci dengan resolusi Full HD",
+      "quantity": "1 pcs (3.50 kg)",
+      "tax": "PPN",
+      "taxpph": "PPH 22",
+      "price": "Rp1.800.000",
+      "shippingOptions": "Pilih Pengiriman"
+    },
+    {
+      "id": 4,
+      "imageSrc": "https://lh4.googleusercontent.com/proxy/hn41g3sQ64FyHPoJ_5cLbMnjhDDqUaBIEZ41RNvDYH544BNKdlDzQXnQdP0uvmYZYdvBbVCNFbxP94uO8f9nFEyVkqeC_N8BKap0N5s7iI6hUYBYMZjN7Pkfnp8yTMjpUkmZ-cYiP_YsDW7vW5tAIPBb_l2X",
+      "title": "Toko Tokoan",
+      "location": "Yogyakarta",
+      "availability": "Tersedia",
+      "description": "Keyboard mekanik dengan switch Cherry MX",
+      "quantity": "1 pcs (0.75 kg)",
+      "tax": "PPN",
+      "taxpph": "PPH 22",
+      "price": "Rp650.000",
+      "shippingOptions": "Pilih Pengiriman"
+    },
+    {
+      "id": 5,
+      "imageSrc": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-4516243/havit_havit_mouse_gaming_rgb_backlit_black_ms1001a_full06_o40u3q7l.jpg",
+      "title": "Toko Apip Yulistian",
+      "location": "Medan",
+      "availability": "Tersedia",
+      "description": "Mouse gaming dengan DPI tinggi dan desain ergonomis.",
+      "quantity": "1 pcs (0.20 kg)",
+      "tax": "PPN",
+      "taxpph": "PPH 22",
+      "price": "Rp350.000",
+      "shippingOptions": "Pilih Pengiriman"
+    }
+  ]
+  
