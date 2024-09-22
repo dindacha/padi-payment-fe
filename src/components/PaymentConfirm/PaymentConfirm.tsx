@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import './PaymentConfirm.css';
 import Countdown from 'react-countdown';
+import type { ReactElement } from 'react';
 
 type CountdownProps = {
   days: number;
@@ -26,7 +28,7 @@ interface Transaction {
    gross_amount: number;
    payment: Payment; 
    payment_name: string;
-   expire_at: string; // changed to string to match your data
+   expire_at: string; 
 }
 
 const formatDate = (date: Date | string): string => {
@@ -56,7 +58,16 @@ const renderer = ({ days, hours, minutes, seconds, completed }: CountdownProps) 
   }
 };
 
-const PaymentConfirm = () => {
+
+export default function PaymentConfirm(): ReactElement {
+  return (
+    <Suspense fallback={<div>Loading confirmation...</div>}>
+      <PaymentConfirmComponent />
+    </Suspense>
+  );
+}
+
+function PaymentConfirmComponent (): ReactElement {
   const [transaction, setTransaction] = useState<Transaction | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -326,4 +337,4 @@ const PaymentConfirm = () => {
   );
 };
 
-export default PaymentConfirm;
+

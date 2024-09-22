@@ -226,11 +226,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
               <h3 className="checkout-summary-title">Ringkasan Belanja</h3>
               <div className="flex justify-between m-1">
                 <div className="checkout-summary-total">Total Harga (5 Barang)</div>
-                <div className="checkout-summary-price">Rp0</div>
+                <div className="checkout-summary-price">Rp10000</div>
               </div>
               <div className="flex justify-between m-1">
                 <div className="checkout-summary-total">Total Ongkos Kirim</div>
-                <div className="checkout-summary-price">Rp0</div>
+                <div className="checkout-summary-price">Rp2345</div>
               </div>
               <div className="flex justify-between m-1">
                 <div className="checkout-summary-price">Total Belanja</div>
