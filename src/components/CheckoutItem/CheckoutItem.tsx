@@ -69,7 +69,7 @@ const CheckoutItemList: React.FC = () => {
                             data-nimg="fill"
                             className="rounded-lg"
                             sizes="100vw"
-                            src="https://padiumkm.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fshop.b48cf028.svg&w=2048&q=25"
+                            src="shop.svg"
                             style={{
                               position: 'absolute',
                               height: '100%',
