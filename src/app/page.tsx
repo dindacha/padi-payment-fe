@@ -3,7 +3,7 @@ import Checkout from "@/components/Checkout/Checkout"
 
 const HomePage = () => {
   return (
-    <div className=''>
+    <div className='checkout-container'>
       <Checkout/>
     </div>
   )

@@ -1,0 +1,56 @@
+
+.address-container {
+  padding: 0px;
+}
+
+.address-box {
+  padding: 0px;
+}
+
+.address-content {
+  padding: 16px;
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-details {
+  margin-top: 8px;
+}
+
+@media (min-width: 640px) { 
+  .address-content {
+    padding: 14px;
+    width: 380px;
+  }
+}
+
+@media (min-width: 768px) {
+  .address-content {
+    padding: 14px;
+    width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .address-content {
+    padding: 14px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .address-content {
+    padding: 14px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .address-content {
+    padding: 14px;
+  }
+}
+

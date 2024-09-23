@@ -182,7 +182,7 @@ const CheckoutSummary = () => {
 
             <div className="pt-4">
               <button
-                className="w-full px-4 h-9 border border-secondary-70 rounded-lg text-white bg-secondary-70 hover:bg-secondary-40 font-medium"
+                className="w-full px-4 h-9 border border-secondary-70 rounded-lg text-secondary-60 bg-transparent hover:bg-secondary-40 font-medium"
                 onClick={openModal}
               >
                 Pilih Metode Pembayaran Lain
