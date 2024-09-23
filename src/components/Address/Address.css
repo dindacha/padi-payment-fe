@@ -21,10 +21,17 @@
   margin-top: 8px;
 }
 
+@media (min-width: 90px) { 
+  .address-content {
+    padding: 14px;
+    width: 400px;
+  }
+}
+
 @media (min-width: 640px) { 
   .address-content {
     padding: 14px;
-    width: 380px;
+    width: 500px;
   }
 }
 
