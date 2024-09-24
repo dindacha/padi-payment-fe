@@ -8,6 +8,10 @@
 @tailwind utilities;
 
 
+* {
+    box-sizing: border-box;
+  }
+
 :after,:before{
     box-sizing:border-box;
     border:0 solid #e5e7eb
@@ -26,9 +30,15 @@
     font-variation-settings:normal;
     -webkit-tap-highlight-color:transparent
 }
+
+html, body {
+    overflow-x: hidden;
+  }
+
 body{
     margin:0;
-    line-height:inherit
+    line-height:inherit;
+   
 }
 
 hr{
@@ -195,7 +205,8 @@ ol.list-decimal.list-text-lg>li::marker{
     width:100%!important
 }
 .container{
-    width:100%
+    width:100%;
+    max-width: 100%;
 }
 @media (min-width:0px){
     .\!container{
@@ -728,7 +739,7 @@ ol.list-decimal.list-text-lg>li::marker{
 @media (min-width: 90px) { 
     .container-content {
       padding: 14px;
-      width: 300px;
+      width: 360px;
     }
   }
   
