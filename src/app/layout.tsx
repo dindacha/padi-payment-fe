@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import CustomerCare from "@/components/CustomerCare/CustomerCare";
 
-// Load Ubuntu font
 const ubuntu = Ubuntu({
   subsets: ['latin'],
   weight: ['300', '400', '500', '700'],
@@ -21,6 +20,9 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Padi UMKM",
   description: "Padi UMKM",
+  icons: {
+    icon: '/favicon.ico', 
+  },
 };
 
 export default function RootLayout({
