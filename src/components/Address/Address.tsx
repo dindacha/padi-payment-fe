@@ -9,7 +9,7 @@ const Address = () => {
                 style={{
                     boxShadow: '0px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 10px 0px rgba(0, 0, 0, 0.1)',
                 }} 
-                className="flex flex-col justify-between rounded-lg bg-white text-paletteText-primary p-4 space-y-4 address-content"
+                className="flex flex-col justify-between rounded-lg bg-white text-paletteText-primary p-4 space-y-4"
             >
                 <div className="flex justify-between items-center">
                     <div className="text-xl font-[700] text-black">Alamat Pengiriman</div>

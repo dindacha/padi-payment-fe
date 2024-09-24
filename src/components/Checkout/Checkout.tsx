@@ -12,13 +12,13 @@ const Checkout = () => {
       </div>
       <div className='flex flex-col space-x-0 space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0'>
         <div className='w-full lg:w-2/3 space-y-8'>
-          <div className='flex flex-col space-y-8'>
+          <div className='flex flex-col space-y-8 container-content'>
             <Address/>
             <CheckoutItem />
           </div>
         </div>
         <div className='w-full lg:w-1/3'>
-          <div className='sticky-summary'>
+          <div className='sticky-summary container-content'>
             <CheckoutSummary/>
           </div>
         </div>

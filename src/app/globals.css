@@ -722,3 +722,46 @@ ol.list-decimal.list-text-lg>li::marker{
         max-width: 1536px
     }
 } 
+
+
+/* responsive */
+@media (min-width: 90px) { 
+    .container-content {
+      padding: 14px;
+      width: 300px;
+    }
+  }
+  
+  @media (min-width: 640px) { 
+    .container-content {
+      padding: 14px;
+      width: 500px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-content {
+      padding: 14px;
+      width: 700px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-content {
+      padding: 14px;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container-content {
+      padding: 14px;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .container-content {
+      padding: 14px;
+    }
+  }
+  
