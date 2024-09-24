@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="container-layout">
                 <div className="md:border-2 p-5">
                     <div className="text-xl font-bold mb-6 text-center lg:text-start">Metode Pembayaran</div>
-                    <div className="flex flex-wrap gap-3 md:gap-4 items-center">
+                    <div className="flex flex-wrap gap-2 md:gap-4 items-center">
                         <div className="cursor-pointer flex-none w-fit items-center">
                             <img src="padi-umkm/logo-mandiri.svg" alt="" width="70" height="70" />
                         </div>

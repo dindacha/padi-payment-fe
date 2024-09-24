@@ -30,10 +30,10 @@ const Navbar = () => {
             </div>
         </nav>
 
-        <div className="w-full z-40 flex-col flex bg-white border-b-2">
+        <div className="w-full z-40 flex-col flex bg-white border-b-2 sm:hidden nav-mob">
             <div className='flex items-center flex-col sm:flex-row justify-around bg-white py-0 z-30 px-5 w-full h-[60px] md:h-[80px] '>
                 {/* left */}
-                <div className='flex items-center justify-between w-full h-full mt-3 sm:mt-0 md:mt-0 lg:mt-0'>
+                <div className='flex flex-col-mob items-center justify-between w-full h-full mt-3 sm:mt-0 md:mt-0 lg:mt-0'>
                     <div className='flex-none items-center justify-center h-full w-[100px] max-w-[100px] md:w-[120px] md:max-w-[120px] pr-7'>
                         <a><span className='flex items-center justify-center cursor-pointer w-full h-full'>
                             <img src='logo-padiumkm.png' alt='padiUMKM'></img>
@@ -45,7 +45,7 @@ const Navbar = () => {
                             <p className='flex items-center text-sm font-medium text-[#444B55] py-2 cursor-pointer'>Kategori</p>
                         </div>
                     </nav>
-                    <div className='relative items-center w-full h-10 text-paletteText-primary px-3 leading-tight hidden sm:flex border-2 rounded-[8px]'>
+                    <div className='relative items-center w-full h-10 text-paletteText-primary px-3 leading-tight hidden sm:flex border-2 rounded-[8px] search-bar-mobile'>
                         <div className='w-full h-full '>
                             <input type="text" placeholder='Cari produk, jasa, atau vendor' className='w-full h-full focus:outline-none bg-transparent placeholder:text-[#8F95B2] text-sm' />
                         </div>
@@ -53,17 +53,7 @@ const Navbar = () => {
                             <img src='search-padiumkm.png'></img>
                         </div>
                     </div>
-                    <div className='h-full pl-5 flex items-center justify-center'>
-                        {/* <div className='hidden md:flex pr-3'>
-                            <button className='text-[#009EA9]  border-[#009EA9] border-solid border text-[12px] flex justify-center gap-2 whitespace-nowrap items-center w-full px-4 py-2.5 rounded-lg
-      '>
-                                <div className='w-4 h-4'>
-                                    <img></img>
-                                </div>
-                                <p className='font-medium'>Daftar Transaksi</p>
-
-                            </button>
-                        </div> */}
+                    <div className='h-full pl-5 sm:flex hidden items-center justify-center'>
                         <a>
                         <div className='relative flex items-center justify-center cursor-pointer h-full w-full text-paletteText-inactive min-w-[60px]'>
                             <div className='flex items-center justify-center hover:bg-[#F3F5FC] hover:rounded-md py-[5px] px-[6px] w-[40px] h-[40px]'>
@@ -86,9 +76,6 @@ const Navbar = () => {
                             </div>
                         </span>
                     </div>
-                  
-                   
-
                 </div>
                 {/* right */}
                 <div className='flex items-center w-full sm:w-fit h-full'>

@@ -1,5 +1,4 @@
 
-
 .navbar {
     background-color: #8D8D97;
 }
@@ -41,5 +40,26 @@
   
 .logo {
     margin: 2px 0;
+}
+
+@media (max-width: 640px) {
+    /* Menyusun elemen secara vertikal pada mobile */
+    .search-bar-mobile {
+      display: flex !important; /* Menampilkan search bar pada mobile */
+      margin-top: 10px; /* Menambah jarak di bawah logo */
+    }
+    
+    .search-bar-mobile input {
+      width: 100%; /* Membuat search bar full width */
+    }
+
+    .flex-col-mob {
+        flex-direction: column;
+    }
+
+    .nav-mob {
+        height: 120px;
+    }
+    
 }
   
