@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
         </nav>
 
-        <div className="w-full z-40 flex-col flex bg-white border-b-2 sm:hidden nav-mob">
+        <div className="w-full z-40 flex-col flex bg-white border-b-2 nav-mob">
             <div className='flex items-center flex-col sm:flex-row justify-around bg-white py-0 z-30 px-5 w-full h-[60px] md:h-[80px] '>
                 {/* left */}
                 <div className='flex flex-col-mob items-center justify-between w-full h-full mt-3 sm:mt-0 md:mt-0 lg:mt-0'>
