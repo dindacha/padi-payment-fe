@@ -20,9 +20,6 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Padi UMKM",
   description: "Padi UMKM",
-  icons: {
-    icon: '/favicon.ico', 
-  },
 };
 
 export default function RootLayout({
@@ -33,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
        <head>
-        <link rel="icon" href="/src/app/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="padi.png" type="image/png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${ubuntu.className} ${openSans.className}`}>

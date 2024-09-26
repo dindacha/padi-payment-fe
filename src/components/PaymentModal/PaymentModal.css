@@ -119,5 +119,7 @@ input[type="radio"].accent-secondary-70:checked + .radio-label {
   .payment-modal-white {
       margin-top: 18%;
       max-height: 80vh;
-    }      
+      overflow-x: hidden; 
+    }
+
 }

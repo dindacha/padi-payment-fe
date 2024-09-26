@@ -151,8 +151,8 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
         >
           &times;
         </button>
-        <div className="space-y-6">
-          <div className="flex items-center space-x-2">
+        <div className="space-y-4">
+          <div className="flex items-center space-x-8">
             <div className="font-[700] text-2xl text-paletteText-primary">
               Metode Pembayaran
             </div>
