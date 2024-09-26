@@ -117,7 +117,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
       const transactionId = result.data.id;
       router.push(`/payment?transactionId=${transactionId}`);
   
-      alert('Payment processed successfully!');
+      // alert('Payment processed successfully!');
       onClose(); 
     } catch (error) {
       if (error instanceof Error) {

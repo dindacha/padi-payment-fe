@@ -93,7 +93,7 @@ const CheckoutSummary = () => {
       router.push(`/payment?transactionId=${transactionId}`);
       console.log("ini resultnya", result);
       console.log("ini id trans nya", transactionId);
-      alert("Payment processed successfully!");
+      // alert("Payment processed successfully!");
       closeModal();
 
     } catch (error) {
