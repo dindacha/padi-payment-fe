@@ -144,7 +144,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 payment-modal-black">
-      <div className="bg-white rounded-lg p-10 w-full max-w-3xl relative payment-modal-white">
+      <div className="bg-white rounded-lg p-10 m-4 w-full max-w-3xl relative payment-modal-white">
         <button
           className="absolute top-7 right-10 text-gray-600 text-3xl"
           onClick={onClose}

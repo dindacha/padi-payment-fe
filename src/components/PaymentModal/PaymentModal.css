@@ -114,3 +114,9 @@ input[type="radio"].accent-secondary-70:checked + .radio-label {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+
+@media (min-width: 90px) and (max-width: 640px) { 
+  .payment-modal-white {
+      margin-top: 18%;
+    }      
+}
