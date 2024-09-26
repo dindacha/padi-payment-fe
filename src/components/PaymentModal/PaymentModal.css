@@ -121,5 +121,10 @@ input[type="radio"].accent-secondary-70:checked + .radio-label {
       max-height: 80vh;
       overflow-x: hidden; 
     }
+    .tab-button {
+      padding: 0.5rem 1rem;
+      font-size: 14px; 
+    }
+    
 
 }
