@@ -10,6 +10,7 @@ import type { ReactElement } from 'react';
 
 type CountdownProps = {
   days: number;
+
   hours: number;
   minutes: number;
   seconds: number;
@@ -146,7 +147,7 @@ function PaymentConfirmComponent (): ReactElement {
          </div>
        </div>
        <div className="inline-flex w-full flex-col items-center gap-8 my-6">
-         <div className="flex flex-col items-center justify-start gap-[42px] self-stretch rounded-lg border border-slate-200">
+         <div className="flex flex-col items-center justify-start gap-[42px] self-stretch rounded-lg border border-slate-200 small-screen">
            <div className="flex flex-col items-end justify-start self-stretch rounded-lg">
              <div className="flex flex-col items-start justify-start gap-1 self-stretch bg-slate-50">
                <div className="inline-flex items-start justify-between gap-2.5 self-stretch px-4 py-3">
@@ -157,17 +158,17 @@ function PaymentConfirmComponent (): ReactElement {
                  <div className="h-[1px] shrink grow basis-0 bg-slate-200"></div>
                </div>
              </div>
-             <div className="flex flex-col items-center justify-start gap-4 self-stretch py-5">
+             <div className="flex flex-col items-center justify-start gap-4 self-stretch py-5 small-screen">
                <div className="flex flex-col items-start justify-start gap-4 self-stretch px-4">
                  <div className="inline-flex items-center justify-between gap-1 self-stretch">
-                   <div className="text-[16px] font-normal leading-normal text-neutral-600">Nomor Virtual Account</div>
+                   <div className="text-[16px] font-normal leading-normal text-neutral-600 text-16">Nomor Virtual Account</div>
                    <div className="inline-flex flex-col items-end justify-start gap-2.5">
                      <div className="inline-flex items-center justify-center gap-2">
-                       <div className="text-center text-[20px] font-bold leading-7 text-neutral-600">
+                       <div className="text-center text-[20px] font-bold leading-7 text-neutral-600 text-20">
                          {transaction.no_payment}
                        </div>
                        <div className="flex items-center justify-start gap-1 cursor-pointer" data-testid="txtSalin">
-                         <div className="text-[14px] font-normal underline text-[#009EA9]">Salin</div>
+                         <div className="text-[14px] font-normal underline text-[#009EA9] text-14">Salin</div>
                          <div className="relative h-4 w-4">
                            <div className="absolute left-0 top-0 h-4 w-4">
                              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" color="#009EA9" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -184,14 +185,14 @@ function PaymentConfirmComponent (): ReactElement {
                  <div className="h-[1px] shrink grow basis-0 bg-slate-200"></div>
                </div>
                <div className="inline-flex items-start justify-between self-stretch px-4">
-                 <div className="text-[16px] font-normal leading-normal text-neutral-600">Total Harga</div>
+                 <div className="text-[16px] font-normal leading-normal text-neutral-600 text-16">Total Harga</div>
                  <div className="flex items-start justify-center gap-2">
-                   <div className="text-center text-[20px] font-bold leading-7 text-neutral-600">
+                   <div className="text-center text-[20px] font-bold leading-7 text-neutral-600 text-20">
                      {`Rp ${transaction.gross_amount}`}
                    </div>
                    <div className="flex items-center justify-center gap-3">
                      <div className="flex items-center justify-start gap-1 cursor-pointer" data-testid="txtSalin">
-                       <div className="text-[14px] font-normal underline text-[#009EA9]">Salin</div>
+                       <div className="text-[14px] font-normal underline text-[#009EA9] text-14">Salin</div>
                        <div className="relative h-4 w-4">
                          <div className="absolute left-0 top-0 h-4 w-4">
                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" color="#009EA9" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -211,9 +212,9 @@ function PaymentConfirmComponent (): ReactElement {
            <Link href="/checkout">
              <button 
                data-testid="btnKembaliKeBeranda" 
-               className="w-80 flex items-center justify-center gap-2 rounded border border-cyan-600 bg-white py-2"
+               className="w-80 flex items-center justify-center gap-2 rounded border border-cyan-600 bg-white py-2 w-btn"
              >
-               <span className="text-[16px] font-medium capitalize leading-normal text-cyan-600">
+               <span className="text-[16px] font-medium capitalize leading-normal text-cyan-600 text-16">
                  Kembali ke beranda
                </span>
              </button>
@@ -221,9 +222,9 @@ function PaymentConfirmComponent (): ReactElement {
            <Link href="/checkout">
              <button 
                data-testid="btnCekStatusPesanan" 
-               className="w-80 flex items-center justify-center gap-2 rounded bg-cyan-600 cursor-pointer py-2"
+               className="w-80 flex items-center justify-center gap-2 rounded bg-cyan-600 cursor-pointer py-2 w-btn"
              >
-               <span className="text-[16px] font-medium capitalize leading-normal text-neutral-50">
+               <span className="text-[16px] font-medium capitalize leading-normal text-neutral-50 text-16">
                  Cek Status Pesanan
                </span>
              </button>
@@ -232,7 +233,7 @@ function PaymentConfirmComponent (): ReactElement {
 
         
  
-         <div className="flex flex-col items-center justify-start gap-[42px] self-stretch rounded-lg ">
+         <div className="flex flex-col items-center justify-start gap-[42px] self-stretch rounded-lg small-screen">
             <div className="flex flex-col items-end justify-start self-stretch rounded-lg">
                <div className="flex flex-col items-start justify-start gap-1 self-stretch">
                   <div className="inline-flex items-start justify-start gap-2.5 self-stretch px-4 py-3">

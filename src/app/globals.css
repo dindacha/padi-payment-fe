@@ -736,10 +736,27 @@ ol.list-decimal.list-text-lg>li::marker{
 
 
 /* responsive */
-@media (min-width: 90px) { 
+@media (min-width: 90px) and (max-width: 640px) { 
     .container-content {
       padding: 14px;
       width: 360px;
+    }
+    .small-screen {
+        max-width: 400px; 
+        margin: 0 auto; 
+    }
+    .text-20 {
+        font-size: 16px; 
+    }
+    .text-16 {
+        font-size: 12px; 
+        padding: 5px;
+    }
+    .text-14 {
+        font-size: 9px; 
+    }
+    .w-btn {
+        width: 160px;
     }
   }
   
